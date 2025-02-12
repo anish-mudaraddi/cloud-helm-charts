@@ -1,0 +1,132 @@
+# adapted from https://github.com/camptocamp/helm-dependency-update-action example
+
+name: Update Chart Dependencies
+
+on:
+  schedule:
+    - cron: '0 12 * * 1-5'  # Every working day at 12pm UTC
+  workflow_dispatch:
+    inputs:
+      update-strategy:
+        description: "Update strategy to use. Valid values are 'patch', 'minor' or 'major'"
+        type: choice
+        options:
+          - "patch"
+          - "minor"
+          - "major"
+        required: true
+      charts:
+        description: "(Optional) Comma-separated list of charts to update, if not given will try to update all charts"
+        type: string
+        required: false
+        default: ""
+      excluded-dependencies:
+        description: "Comma-separated list of dependencies to exclude from the update (i.e. 'dependency1,dependency2,dependency3')"
+        type: string
+        required: false
+        default: ""
+      dry-run:
+        description: "Activate dry-run mode"
+        type: boolean
+        required: false
+        default: true
+
+env:
+  author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
+jobs:
+  discover-charts:
+    runs-on: ubuntu-latest
+    outputs:
+      chart-names: ${{ steps.set-charts.outputs.chart-names }}
+      update-strategies: ${{ steps.set-strategies.outputs.strategies }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find charts
+        id: set-charts
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ ! -z "${{ github.event.inputs.charts }}" ]; then
+            # Use manually specified charts
+            CHARTS_JSON=$(echo "${{ github.event.inputs.charts }}" | tr ',' '\n' | jq -R -s -c 'split("\n")[:-1]')
+          else
+            # Find all Chart.yaml files and extract their directory names
+            CHARTS=$(find charts -name Chart.yaml -exec dirname {} \; | xargs -n 1 basename)
+            CHARTS_JSON=$(echo "$CHARTS" | jq -R -s -c 'split("\n")[:-1]')
+          fi
+          echo "chart-names=$CHARTS_JSON" >> $GITHUB_OUTPUT
+
+      - name: Set update strategies
+        id: set-strategies
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # Use manually specified strategy
+            STRATEGIES_JSON="[\"${{ github.event.inputs.update-strategy }}\"]"
+          else
+            # Use default strategies for scheduled run
+            STRATEGIES_JSON='["minor", "major"]'
+          fi
+          echo "strategies=$STRATEGIES_JSON" >> $GITHUB_OUTPUT
+
+  update-dependencies:
+    needs: discover-charts
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        chart: ${{ fromJson(needs.discover-charts.outputs.chart-names) }}
+        update-strategy: ${{ fromJson(needs.discover-charts.outputs.update-strategies) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: "Upgrade Helm chart dependencies"
+        id: deps-update
+        uses: camptocamp/helm-dependency-update-action@v0.4.1
+        with:
+          chart-path: "charts/${{ matrix.chart }}"
+          update-strategy: "${{ matrix.update-strategy }}"
+          excluded-dependencies: "${{ github.event.inputs.excluded-dependencies }}"
+          dry-run: "${{ github.event.inputs.dry-run || false }}"
+
+      - name: "Create Pull Request for a minor/patch update"
+        if: ${{ steps.deps-update.outputs.update-type != 'none' && steps.deps-update.outputs.update-type != 'major' }}
+        id: minor-pr
+        uses: peter-evans/create-pull-request@v5
+        env:
+          pr-title: "feat(chart): ${{ steps.deps-update.outputs.update-type }} update of dependencies on ${{ matrix.chart }} chart"
+          branch: "chart-autoupdate-${{ steps.deps-update.outputs.update-type }}-${{ matrix.chart }}"
+          labels: "chart-autoupdate-${{ steps.deps-update.outputs.update-type }}"
+        with:
+          commit-message: ${{ env.pr-title }}
+          author: ${{ env.author }}
+          committer: ${{ env.author }}
+          branch: ${{ env.branch }}
+          title: ${{ env.pr-title }}
+          labels: ${{ env.labels }}
+          body: |
+            Automated PR to update helm dependency charts (${{ steps.deps-update.outputs.update-type }} version)
+            ---
+            ## Description of the changes
+            This PR updates the dependencies of the **${{ matrix.chart }}** Helm chart.
+            The maximum version bump was a **${{ steps.deps-update.outputs.update-type }}** step.
+
+      - name: "Create Pull Request for a major update"
+        if: ${{ steps.deps-update.outputs.update-type != 'none' && steps.deps-update.outputs.update-type == 'major' }}
+        id: major-pr
+        uses: peter-evans/create-pull-request@v5
+        env:
+          pr-title: "feat(chart)!: major update of dependencies on ${{ matrix.chart }} chart"
+        with:
+          commit-message: ${{ env.pr-title }}
+          author: ${{ env.author }}
+          committer: ${{ env.author }}
+          branch: "chart-autoupdate-major-${{ matrix.chart }}"
+          title: ${{ env.pr-title }}
+          labels: "chart-autoupdate-major"
+          body: |
+            :robot: I have updated the chart *beep* *boop*
+            ---
+            ## Description of the changes
+            This PR updates the dependencies of the **${{ matrix.chart }}** Helm chart.
+            :warning: This was a **major** update! Please check the changelog of the updated dependencies and **take notice of any breaking changes before merging**. :warning:
