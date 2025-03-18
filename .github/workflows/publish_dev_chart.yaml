@@ -65,33 +65,19 @@ jobs:
 
       - name: Configure Git
         run: |
+          git pull
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: "update readme"
         run: |
-          sed -i '0,/^#/ s/^#.*$/&\n\nThis is an Alpha version/' charts/${{gihub.event.inputs.chart}}/README.md
+          sed -i '0,/^#/ s/^#.*$/&\n\nThis is an Alpha version/' charts/${{github.event.inputs.chart}}/README.md
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "update readme"
-          branch: br-${{github.event.inputs.chart}}-v${{ steps.bump-version.outputs.version }}
-
-  publish:
-    needs: update-readme
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{github.event.inputs.chart}}-v${{ needs.bump-charts.outputs.alpha-version }}
-          
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com" 
+          branch: br-${{github.event.inputs.chart}}-v${{ needs.bump-charts.outputs.alpha-version }}
 
       - name: Install Helm
         uses: azure/setup-helm@v3
