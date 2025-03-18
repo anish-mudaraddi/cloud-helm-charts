@@ -50,7 +50,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "bump chart ${{github.event.inputs.chart}} to version: ${{ steps.bump-version.outputs.version }}"
-          branch: br-${{github.event.inputs.chart}}-v${{ steps.bump-version.outputs.version }}
+          branch: ${{github.event.inputs.chart}}-v${{ steps.bump-version.outputs.version }}
           tagging_message: ${{github.event.inputs.chart}}-v${{ steps.bump-version.outputs.version }}
           create_branch: true
   
@@ -61,7 +61,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: br-${{github.event.inputs.chart}}-v${{ needs.bump-charts.outputs.alpha-version }}
+          ref: ${{github.event.inputs.chart}}-v${{ needs.bump-charts.outputs.alpha-version }}
 
       - name: Configure Git
         run: |
@@ -73,7 +73,7 @@ jobs:
         run: |
           sed -i '0,/^#/ s/^#.*$/&\n\nThis is an alpha version of this chart/' charts/${{github.event.inputs.chart}}/README.md
       
-      - name: Commit changes
+      - name: Commit readme changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "update readme"
