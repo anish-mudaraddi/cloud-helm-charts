@@ -334,6 +334,20 @@ entries:
     version: 1.6.1
   stfc-cloud-cert-manager:
   - apiVersion: v2
+    created: "2025-10-10T12:48:19.081580084Z"
+    dependencies:
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      version: v1.19.0
+    description: A Helm chart to deploy opinionated instance of cert-manager for the
+      STFC Cloud
+    digest: 19139b0a3d1b1a533fa955c6f5f1730f209f573f8646ba4770bec57f60d7386b
+    name: stfc-cloud-cert-manager
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-cert-manager-1.2.4/stfc-cloud-cert-manager-1.2.4.tgz
+    version: 1.2.4
+  - apiVersion: v2
     created: "2025-07-29T16:16:06.966036637Z"
     dependencies:
     - name: cert-manager
@@ -415,6 +429,13 @@ entries:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-chatops-0.1.0/stfc-cloud-chatops-0.1.0.tgz
     version: 0.1.0
   stfc-cloud-docker-registry:
+  - apiVersion: v2
+    created: "2025-10-10T12:48:19.235929117Z"
+    digest: 138ee83735bcf3f7f426f71dc4485a8b871d135098a9e1fc8d4acc3c7678ddf4
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-1.0.1/stfc-cloud-docker-registry-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     created: "2025-10-10T10:12:03.465606031Z"
     digest: 7bce9375970d2ed669e8acaee2f38d5803a60bca777b9b320aa3c2224a4309bb
@@ -1121,6 +1142,17 @@ entries:
     version: 1.8.0
   stfc-cloud-vm:
   - apiVersion: v2
+    created: "2025-10-10T12:48:19.752494524Z"
+    dependencies:
+    - name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts/
+      version: 0.29.0
+    digest: 0d8ef5c2b149b22105e6bd82d974755e9735402738688581c0d91d1a098246d9
+    name: stfc-cloud-vm
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.5/stfc-cloud-vm-1.0.5.tgz
+    version: 1.0.5
+  - apiVersion: v2
     created: "2025-10-01T10:43:43.947412648Z"
     dependencies:
     - name: victoria-metrics-cluster
@@ -1175,4 +1207,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2025-10-10T10:12:03.465836485Z"
+generated: "2025-10-10T12:48:19.752670884Z"
