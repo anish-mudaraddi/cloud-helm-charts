@@ -17,21 +17,16 @@ internalTLS:
   # generate a cert-manager certificate
   certificate:
     enabled: true
-    # provide domain name if externally exposing traffic via httproute and tls mode: Passthrough
-    additionalHosts: []
-    #  - dockerhub.example.com
-
-    # default 2160h = 90d if not specified
-    duration: ""
-    # how long before exipiry should cert be renewed
-    # default 360h = 15d if not specified
-    renewBefore:
-    # issuer
     issuer:
       group: cert-manager.io
       kind: ClusterIssuer
-      # change this to le-prod for production services
-      name: self-signed
+      name: internal-ca-issuer
+
+# to allow internalTLS to work with gateway api
+# specify the configmap "internal-bundle" which is managed by "trust-manager"
+backendTLSPolicy:
+  enabled: true
+  caBundleName: internal-bundle
 
 httproute:
   # Enable HTTPRoute resource for docker-registry (Gateway API)

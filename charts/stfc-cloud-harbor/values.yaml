@@ -1,21 +1,21 @@
-# generate cert-manager certificates for harbor 
+# generate cert-manager certificates for harbor
 # to generate and manage certificates outside of harbor
-certificate: 
-  
+certificate:
   # to generate tls certs for internal traffic between harbor pods
-  internal: 
+  internal:
     enabled: true
     # issuer
-    issuer: 
+    issuer:
       group: cert-manager.io
       kind: ClusterIssuer
       name: internal-ca-issuer
 
   # to generate tls certs for ingress traffic
-  expose: 
-    enabled: true 
+  # gateway API handles this part
+  expose:
+    enabled: false
     # certificate primary domain
-    domain: "" 
+    domain: ""
     # harbor.example.com
 
     additionalHosts: []
@@ -23,13 +23,17 @@ certificate:
     duration: ""
     # how long before exipiry should cert be renewed
     # default 360h = 15d if not specified
-    renewBefore: 
+    renewBefore:
     # issuer
-    issuer: 
+    issuer:
       group: cert-manager.io
       kind: ClusterIssuer
       # change this to le-prod for production services
       name: self-signed
+
+backendTLSPolicy:
+  enabled: true
+  caBundleName: internal-bundle
 
 harbor:
   fullnameOverride: harbor
@@ -55,9 +59,9 @@ harbor:
     type: route
     tls:
       enabled: true
-      # don't change this if you're generating certs above
-      certSource: secret
-      secret: 
+      # handled by gateway api
+      certSource: none
+      secret:
         secretName: harbor-tls
 
     route:
@@ -167,6 +171,7 @@ backup:
     daily: "12 12 * * *" # Every day @ 12:12 (add smear)
     weekly: "2 9 * * 1" # Every Monday @ 9:02
     monthly: "17 16 1 * *" # 1st of month @ 16:17
+
 
 # internal trust-manager bundle, to expose internal CA cert for backendtlspolicy verification (default internal-bundle)
 # caBundleName: ""

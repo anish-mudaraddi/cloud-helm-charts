@@ -36,11 +36,12 @@ argo-cd:
     certificate:
       # -- Deploy a Certificate resource (requires cert-manager)
       enabled: true
+      domain: argocd-server.argocd.svc.cluster.local
       issuer:
         kind: "ClusterIssuer"
         # We expose this cert to external traffic via gateway api tls mode: Passthrough
         # If you want to enable letsencrypt, setup a le-prod clusterissuer on the gateway argo is running on and use that
-        name: "self-signed"
+        name: internal-ca-issuer
 
     # enable this to setup backendTLSPolicy if you wish to terminate at the gateway
     # you might want to do this if you'd like to setup additional external auth or TLS policies
