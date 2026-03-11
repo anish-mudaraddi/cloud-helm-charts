@@ -9,6 +9,10 @@ service:
   name: registry
   port: 5000
 
+# for version 2
+# for version 3 - /etc/distribution
+configPath: /etc/docker/registry
+
 internalTLS:
   enabled: true
   # use existing secret, if defined, uses this over certificate-generated secret
