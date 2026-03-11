@@ -25,6 +25,23 @@ entries:
     version: 1.0.0
   materials-galaxy:
   - apiVersion: v2
+    created: "2026-03-11T16:28:45.465159014Z"
+    dependencies:
+    - name: galaxy
+      repository: https://raw.githubusercontent.com/CloudVE/helm-charts/master/
+      version: 6.7.2
+    - name: galaxy-deps
+      repository: https://raw.githubusercontent.com/CloudVE/helm-charts/master/
+      version: 1.1.1
+    - name: oauth2-proxy
+      repository: https://oauth2-proxy.github.io/manifests
+      version: 10.1.4
+    digest: 9ab991c5e1521a356a28f8f387e2de2a8a21037ef946094f4aea319c0d1b9890
+    name: materials-galaxy
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/materials-galaxy-2.1.15/materials-galaxy-2.1.15.tgz
+    version: 2.1.15
+  - apiVersion: v2
     created: "2026-02-06T16:41:34.896470516Z"
     dependencies:
     - name: galaxy
@@ -349,7 +366,36 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/rabbit-consumer-chart-1.6.1/rabbit-consumer-chart-1.6.1.tgz
     version: 1.6.1
+  stfc-cloud-argocd:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:45.686915601Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 9.4.7
+    digest: 91573725535731aafe277523a61a26c8aca4181cdef5f19026822019ebafe55e
+    name: stfc-cloud-argocd
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-argocd-1.0.0/stfc-cloud-argocd-1.0.0.tgz
+    version: 1.0.0
   stfc-cloud-cert-manager:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:45.880570116Z"
+    dependencies:
+    - name: cert-manager
+      repository: oci://quay.io/jetstack/charts
+      version: v1.19.4
+    - name: trust-manager
+      repository: oci://quay.io/jetstack/charts
+      version: v0.21.1
+    description: A Helm chart to deploy opinionated instance of cert-manager for the
+      STFC Cloud
+    digest: 94ff02b89093d52bfca951767f4b51ae6ddb8cbd98654873308db51d61120cac
+    name: stfc-cloud-cert-manager
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-cert-manager-2.0.0/stfc-cloud-cert-manager-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     created: "2026-02-06T16:41:35.172579253Z"
     dependencies:
@@ -461,6 +507,13 @@ entries:
     version: 0.1.0
   stfc-cloud-docker-registry:
   - apiVersion: v2
+    created: "2026-03-11T16:28:46.112734421Z"
+    digest: 3dd1b798e967b4af3db0abd4a66d9d0dbf55c03d90f5ebe5bb4fa749ff5e61d5
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0/stfc-cloud-docker-registry-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     created: "2026-02-06T16:41:35.370418739Z"
     digest: ecb73a31f6a2c74e74282bbc58ef8022f995d2bd66395e4f0f2ef1e536c26dae
     name: stfc-cloud-docker-registry
@@ -481,7 +534,33 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-1.0.0/stfc-cloud-docker-registry-1.0.0.tgz
     version: 1.0.0
+  stfc-cloud-envoy-gateways:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-03-11T16:28:46.393468851Z"
+    dependencies:
+    - name: gateway-helm
+      repository: oci://docker.io/envoyproxy
+      version: 1.7.0
+    description: Deploy internal & external Envoy Gateways with optional OAuth2 and
+      Basic Auth
+    digest: 6fbe8671a94f5433e1aafc2f3c2a961c811fef3021936591de705d690df9597b
+    name: stfc-cloud-envoy-gateways
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-envoy-gateways-0.1.0/stfc-cloud-envoy-gateways-0.1.0.tgz
+    version: 0.1.0
   stfc-cloud-harbor:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:46.616759348Z"
+    dependencies:
+    - name: harbor
+      repository: https://helm.goharbor.io
+      version: 1.18.2
+    digest: f32df6983bf9ef8ce17063546cbe8ce965dc84e08e790990cec94db50a7a5fda
+    name: stfc-cloud-harbor
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-harbor-1.3.0/stfc-cloud-harbor-1.3.0.tgz
+    version: 1.3.0
   - apiVersion: v2
     created: "2026-02-06T16:41:35.584104927Z"
     dependencies:
@@ -649,6 +728,17 @@ entries:
     version: 1.0.0
   stfc-cloud-logging:
   - apiVersion: v2
+    created: "2026-03-11T16:28:46.844536412Z"
+    dependencies:
+    - name: fluent-operator
+      repository: https://fluent.github.io/helm-charts
+      version: 3.5.0
+    digest: 27dde6b5c2111f09088ca8a20f1a59fe137937b28096e092d7d8552784d6742b
+    name: stfc-cloud-logging
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-logging-1.3.0/stfc-cloud-logging-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
     created: "2026-02-06T16:41:35.857864436Z"
     dependencies:
     - name: fluent-operator
@@ -682,6 +772,17 @@ entries:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-logging-1.0.0/stfc-cloud-logging-1.0.0.tgz
     version: 1.0.0
   stfc-cloud-longhorn:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:47.051742601Z"
+    dependencies:
+    - name: longhorn
+      repository: https://charts.longhorn.io
+      version: 1.11.0
+    digest: e55d383c0c386b500f7fb823894910390e6526d0c47a07255d828af2b47546c0
+    name: stfc-cloud-longhorn
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-longhorn-1.1.0/stfc-cloud-longhorn-1.1.0.tgz
+    version: 1.1.0
   - apiVersion: v2
     created: "2026-02-06T16:41:36.103238508Z"
     dependencies:
@@ -738,6 +839,20 @@ entries:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-longhorn-1.0.1/stfc-cloud-longhorn-1.0.1.tgz
     version: 1.0.1
   stfc-cloud-manila-csi:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:47.299675271Z"
+    dependencies:
+    - name: openstack-manila-csi
+      repository: https://kubernetes.github.io/cloud-provider-openstack
+      version: 2.35.0
+    - name: ceph-csi-cephfs
+      repository: https://ceph.github.io/csi-charts
+      version: 3.16.1
+    digest: 222158e0b354dabae6615b754d9f1f4faf50926adff2aa540f0a91f00602f1f7
+    name: stfc-cloud-manila-csi
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-manila-csi-1.1.7/stfc-cloud-manila-csi-1.1.7.tgz
+    version: 1.1.7
   - apiVersion: v2
     created: "2026-02-06T16:41:36.323636685Z"
     dependencies:
@@ -836,7 +951,38 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-manila-csi-1.0.0/stfc-cloud-manila-csi-1.0.0.tgz
     version: 1.0.0
+  stfc-cloud-monitoring-stack:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:47.552066168Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 82.10.1
+    description: A Helm chart to deploy an opinionated version of kube-prometheus-stack
+    digest: eccf456ae8c0390aca51b052200d87ef98add3b0bf2cc66ffb2e90143813814d
+    name: stfc-cloud-monitoring-stack
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-monitoring-stack-1.0.0/stfc-cloud-monitoring-stack-1.0.0.tgz
+    version: 1.0.0
   stfc-cloud-opensearch:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:47.758547205Z"
+    dependencies:
+    - name: opensearch-operator
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 2.8.0
+    - name: opensearch-cluster
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 3.1.0
+    description: A Helm chart to deploy an opinionated opensearch cluster with IRIS-IAM
+      integration
+    digest: fd81045cc1f8318aef8856f0ef2425307086472a5ce4b75d960a9d1a9717e18c
+    name: stfc-cloud-opensearch
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
+    version: 4.0.0
   - apiVersion: v2
     created: "2025-07-29T16:17:13.85223354Z"
     dependencies:
@@ -1019,6 +1165,20 @@ entries:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-opensearch-1.0.0/stfc-cloud-opensearch-1.0.0.tgz
     version: 1.0.0
   stfc-cloud-openstack-cluster:
+  - apiVersion: v2
+    created: "2026-03-11T16:28:48.00465883Z"
+    dependencies:
+    - name: openstack-cluster
+      repository: https://azimuth-cloud.github.io/capi-helm-charts
+      version: 0.21.0
+    description: A Helm chart to deploy a compliant K8s cluster (using CAPI) on the
+      STFC Cloud
+    digest: 5e9a4ec6c074fc23ac138593fe9199912cb876248cb06075f7e7048cd088975e
+    name: stfc-cloud-openstack-cluster
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-openstack-cluster-1.7.0/stfc-cloud-openstack-cluster-1.7.0.tgz
+    version: 1.7.0
   - apiVersion: v2
     created: "2026-02-06T16:41:36.537144225Z"
     dependencies:
@@ -1241,6 +1401,17 @@ entries:
     version: 1.8.0
   stfc-cloud-vm:
   - apiVersion: v2
+    created: "2026-03-11T16:28:48.185582588Z"
+    dependencies:
+    - name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts/
+      version: 0.36.0
+    digest: b78b42b1b2c99c13da5b99ebbf78c186776144999bc8db1743fe258203629164
+    name: stfc-cloud-vm
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-vm-1.2.0/stfc-cloud-vm-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     created: "2026-02-06T16:41:36.716892066Z"
     dependencies:
     - name: victoria-metrics-cluster
@@ -1317,4 +1488,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2026-02-06T16:41:36.717276434Z"
+generated: "2026-03-11T16:28:48.185998436Z"
