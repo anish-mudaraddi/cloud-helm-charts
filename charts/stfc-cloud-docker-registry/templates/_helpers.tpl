@@ -95,7 +95,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- if .Values.internalTLS.enabled }}
 - mountPath: /etc/ssl/docker
   name: tls-cert
-  readonly: true
+  readOnly: true
 {{- end }}
 {{- end -}}
 
