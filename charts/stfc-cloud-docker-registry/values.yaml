@@ -134,10 +134,10 @@ configData:
     headers:
       X-Content-Type-Options: [nosniff]
     tls:
-      certificate: /etc/docker/ssl/tls.crt
-      key: /etc/docker/ssl/tls.key
+      certificate: /etc/ssl/docker/tls.crt
+      key: /etc/ssl/docker/tls.key
       clientcas:
-        - /etc/docker/ssl/ca.crt
+        - /etc/ssl/docker/ca.crt
     debug:
       addr: :5001
       prometheus:
