@@ -3,6 +3,14 @@ nameOverride: envoy-gateway
 external:
   # enable external traffic
   enabled: false
+
+  # redirect http traffic to https
+  # applies on all external traffic.
+  # if you want to specify a service on port 80, create another httproute
+  # a more specific route will be resolved first
+  httpsRedirect:
+    enabled: true
+
   # CHANGE THIS FOR PRODUCTION to a letsencrypt-prod clusterissuer
   clusterIssuerName: self-signed
   service:
@@ -71,6 +79,14 @@ external:
 
 internal:
   clusterIssuerName: self-signed
+
+  # redirect http traffic to https
+  # applies on all internal traffic.
+  # if you want to specify a service on port 80, create another httproute
+  # a more specific route will be resolved first
+  httpsRedirect:
+    enabled: true
+
   service:
     annotations:
       # prevents errors when deleting clusters, leave as true
@@ -95,13 +111,6 @@ internal:
 
   listeners:
     # define separate listeners here for all internally accessible services (by hostname)
-
-# redirect http traffic to https
-# works on both internal and external gateways - applies everywhere.
-# if you want to specify a service on port 80, create another httproute
-# a more specific route will be resolved first
-httpsRedirect:
-  enabled: true
 
 # envoy-gateway helm chart values
 gateway-helm:
