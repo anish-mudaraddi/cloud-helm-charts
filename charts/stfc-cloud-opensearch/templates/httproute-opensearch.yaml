@@ -38,11 +38,10 @@ spec:
       {{- toYaml . | nindent 8 }}
     {{- end }}
       backendRefs:
-        - group: gateway.envoyproxy.io
-          kind: Backend
-          name: {{ $serviceName }}-backend
-          port: 443
-          weight: 1
+        - group: ""
+          kind: Service
+          name: {{ $serviceName }}
+          port: {{ $servicePort }}
     {{- end }}
 
 {{- end }}
