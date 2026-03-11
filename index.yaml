@@ -564,6 +564,13 @@ entries:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0/stfc-cloud-docker-registry-3.0.0.tgz
     version: 3.0.0
   - apiVersion: v2
+    created: "2026-03-11T20:43:30.016610742Z"
+    digest: 660dde66dabb5fef4920211130f27d981b09b7886c1f00ae704483d7371b6fcf
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0-alpha2/stfc-cloud-docker-registry-3.0.0-alpha2.tgz
+    version: 3.0.0-alpha2
+  - apiVersion: v2
     created: "2026-03-11T18:16:42.958284669Z"
     digest: 57545911f2a7f437815daba2db96fc6a018cd951517721ebf8f0a2237c23314c
     name: stfc-cloud-docker-registry
@@ -1093,6 +1100,23 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
     version: 4.0.0
+  - apiVersion: v2
+    created: "2026-03-11T20:43:30.230070319Z"
+    dependencies:
+    - name: opensearch-operator
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 2.8.0
+    - name: opensearch-cluster
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 3.1.0
+    description: A Helm chart to deploy an opinionated opensearch cluster with IRIS-IAM
+      integration
+    digest: 581859ff86b299e98bc12304acea14e828d93296607e7142c9036815268dbf19
+    name: stfc-cloud-opensearch
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0-alpha2/stfc-cloud-opensearch-4.0.0-alpha2.tgz
+    version: 4.0.0-alpha2
   - apiVersion: v2
     created: "2026-03-11T19:38:42.938017192Z"
     dependencies:
@@ -1632,4 +1656,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2026-03-11T20:22:27.685082939Z"
+generated: "2026-03-11T20:43:30.230455187Z"
