@@ -7,24 +7,21 @@ certificate:
       group: cert-manager.io
       kind: ClusterIssuer
       name: internal-ca-issuer
-    backendTLSPolicy:
-      enabled: false
+
   transport:
     enabled: true
     issuer:
       group: cert-manager.io
       kind: ClusterIssuer
       name: internal-ca-issuer
-    backendTLSPolicy:
-      enabled: false
+
   http:
     enabled: true
     issuer:
       group: cert-manager.io
       kind: ClusterIssuer
       name: internal-ca-issuer
-    backendTLSPolicy:
-      enabled: false
+
   admin:
     enabled: true
     issuer:

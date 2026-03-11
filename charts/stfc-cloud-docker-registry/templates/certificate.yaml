@@ -9,7 +9,7 @@ metadata:
   namespace: {{ .Values.namespace | default .Release.Namespace }}
 spec:
   secretName: docker-registry-tls
-  commonName: {{ .Values.internalTLS.certificate.domain }}
+  commonName: {{$serviceName}}.{{.Release.Namespace}}.svc.cluster.local
   dnsNames:
     - {{$serviceName}}
     - {{$serviceName}}.{{.Release.Namespace}}
