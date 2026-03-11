@@ -1,33 +1,35 @@
 argo-cd:
   global:
-    cm:
-      controller.diff.server.side: true
 
-      helm.valuesFileSchemes: >-
-        secrets+age-import, secrets+age-import-kubernetes,
-        secrets,secrets+literal,
-        https
+configs:
+  cm:
+    controller.diff.server.side: false
 
-      oidc.config: |
-        name: IRIS IAM
-        issuer: "https://iris-iam.stfc.ac.uk/"
-        clientID: $oidc.irisiam.clientID
-        clientSecret: $oidc.irisiam.clientSecret
-        requestedScopes:
-          - openid
-          - profile
-          - email
-          - groups
-        requestedIDTokenClaims: 
-          groups:
-            essential: true
+    helm.valuesFileSchemes: >-
+      secrets+age-import, secrets+age-import-kubernetes,
+      secrets,secrets+literal,
+      https
 
-      oidc.skip.insecure.verify: true
+    oidc.config: |
+      name: IRIS IAM
+      issuer: "https://iris-iam.stfc.ac.uk/"
+      clientID: $oidc.irisiam.clientID
+      clientSecret: $oidc.irisiam.clientSecret
+      requestedScopes:
+        - openid
+        - profile
+        - email
+        - groups
+      requestedIDTokenClaims: 
+        groups:
+          essential: true
 
-    rbac:
-      policy.csv: |
-        g, stfc-cloud/team, role:readonly
-        g, stfc-cloud/admins, role:admin
+    oidc.skip.insecure.verify: true
+
+  rbac:
+    policy.csv: |
+      g, stfc-cloud/team, role:readonly
+      g, stfc-cloud/admins, role:admin
 
   server:
     httproute:
@@ -47,7 +49,7 @@ argo-cd:
     # you might want to do this if you'd like to setup additional external auth or TLS policies
     # i.e. if you want to setup letsencrypt
     backendTLSPolicy:
-      enabled: false
+      enabled: true
       targetRefs:
         - group: ""
           kind: Service

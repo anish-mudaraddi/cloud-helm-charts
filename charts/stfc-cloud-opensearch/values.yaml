@@ -85,8 +85,6 @@ opensearch-cluster:
         transport:
           generate: false
           perNode: false
-          caSecret:
-            name: log-storage-ca
           nodesDn: ["CN=log-storage,OU=log-storage"]
           adminDn: ["CN=admin, OU=log-storage"]
           secret:
