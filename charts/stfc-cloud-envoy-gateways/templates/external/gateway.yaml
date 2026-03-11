@@ -26,6 +26,8 @@ spec:
           - kind: Secret
             group: ""
             name: {{ .secretName }}
+        {{- else }}
+        certificateRefs: []   
         {{- end }}
         mode: {{ .mode | default "Terminate" }}
       {{- end }}
