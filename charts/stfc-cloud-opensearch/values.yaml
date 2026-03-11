@@ -55,8 +55,8 @@ httproute:
     rules:
       - matches:
           - path:
-            type: PathPrefix
-            value: /
+              type: PathPrefix
+              value: /
 
   dashboards:
     enabled: true
@@ -69,8 +69,8 @@ httproute:
     rules:
       - matches:
           - path:
-            type: PathPrefix
-            value: /
+              type: PathPrefix
+              value: /
 
 opensearch-cluster:
   cluster:
