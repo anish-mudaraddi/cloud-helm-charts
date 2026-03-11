@@ -378,6 +378,17 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-argocd-1.0.0/stfc-cloud-argocd-1.0.0.tgz
     version: 1.0.0
+  - apiVersion: v2
+    created: "2026-03-11T18:16:42.804807507Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 9.4.7
+    digest: 1b0f596a2cbfde470a7372aea2a646d0b461865d6f3fe06e48278733c60eb47a
+    name: stfc-cloud-argocd
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-argocd-1.0.0-alpha1/stfc-cloud-argocd-1.0.0-alpha1.tgz
+    version: 1.0.0-alpha1
   stfc-cloud-cert-manager:
   - apiVersion: v2
     created: "2026-03-11T16:28:45.880570116Z"
@@ -514,6 +525,13 @@ entries:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0/stfc-cloud-docker-registry-3.0.0.tgz
     version: 3.0.0
   - apiVersion: v2
+    created: "2026-03-11T18:16:42.958284669Z"
+    digest: 57545911f2a7f437815daba2db96fc6a018cd951517721ebf8f0a2237c23314c
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0-alpha1/stfc-cloud-docker-registry-3.0.0-alpha1.tgz
+    version: 3.0.0-alpha1
+  - apiVersion: v2
     created: "2026-02-06T16:41:35.370418739Z"
     digest: ecb73a31f6a2c74e74282bbc58ef8022f995d2bd66395e4f0f2ef1e536c26dae
     name: stfc-cloud-docker-registry
@@ -589,6 +607,17 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-harbor-1.3.0/stfc-cloud-harbor-1.3.0.tgz
     version: 1.3.0
+  - apiVersion: v2
+    created: "2026-03-11T18:16:43.168150069Z"
+    dependencies:
+    - name: harbor
+      repository: https://helm.goharbor.io
+      version: 1.18.2
+    digest: b7eeda1ca6c67a40d63f1202ba1416e2fa3c8012c39c411bd5fdadd81ba3438b
+    name: stfc-cloud-harbor
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-harbor-1.3.0-alpha1/stfc-cloud-harbor-1.3.0-alpha1.tgz
+    version: 1.3.0-alpha1
   - apiVersion: v2
     created: "2026-02-06T16:41:35.584104927Z"
     dependencies:
@@ -1011,6 +1040,23 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
     version: 4.0.0
+  - apiVersion: v2
+    created: "2026-03-11T18:16:43.31777506Z"
+    dependencies:
+    - name: opensearch-operator
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 2.8.0
+    - name: opensearch-cluster
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 3.1.0
+    description: A Helm chart to deploy an opinionated opensearch cluster with IRIS-IAM
+      integration
+    digest: 38d5a2640a30a2f75fb68677eea4de3faef900a05e4db7274fbf6930b2796917
+    name: stfc-cloud-opensearch
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0-alpha1/stfc-cloud-opensearch-4.0.0-alpha1.tgz
+    version: 4.0.0-alpha1
   - apiVersion: v2
     created: "2025-07-29T16:17:13.85223354Z"
     dependencies:
@@ -1516,4 +1562,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2026-03-11T17:02:30.620973625Z"
+generated: "2026-03-11T18:16:43.31818559Z"
