@@ -47,6 +47,3 @@ trust-manager:
   image:
     repository: quay.io/jetstack/trust-manager
     tag: v0.22.0
-  defaultPackageImage:
-    repository: jetstack/trust-pkg-debian-bookworm
-    tag: 20230311-deb12u1.5

@@ -9,4 +9,4 @@ dependencies:
 description: A Helm chart to deploy opinionated instance of cert-manager for the STFC Cloud
 name: stfc-cloud-cert-manager
 type: application
-version: 2.0.0
+version: 2.0.0-alpha1
