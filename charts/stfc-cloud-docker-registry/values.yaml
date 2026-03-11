@@ -136,8 +136,6 @@ configData:
     tls:
       certificate: /etc/ssl/docker/tls.crt
       key: /etc/ssl/docker/tls.key
-      clientcas:
-        - /etc/ssl/docker/ca.crt
     debug:
       addr: :5001
       prometheus:
