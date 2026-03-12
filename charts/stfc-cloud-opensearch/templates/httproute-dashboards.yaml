@@ -9,7 +9,7 @@ metadata:
   name: {{ $serviceName }}-dashboards-httproute
   labels:
     {{- include "opensearch-cluster.labels" (index .Subcharts "opensearch-cluster") | nindent 4 }}
-  {{- with .Values.httproute.dashboards.annotations -}}
+  {{- with .Values.httproute.dashboards.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}

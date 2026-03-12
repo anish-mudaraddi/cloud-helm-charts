@@ -31,7 +31,9 @@ kube-prometheus-stack:
         volumeClaimTemplate:
           spec:
             storageClassName: csi-cinder
-
+            recources:
+              requests:
+                storage: 10Gi
     route:
       main:
         enabled: true
@@ -46,6 +48,11 @@ kube-prometheus-stack:
 
   grafana:
     enabled: true
+
+    sidecar:
+      # Tell Grafana to include dashboards from all namespaces
+      dashboards:
+        searchNamespace: ALL
 
     # OVERRIDE WITH STRONG grafana password using sops secret
     adminPassword: admin1234
@@ -90,10 +97,18 @@ kube-prometheus-stack:
   prometheus:
     enabled: true
     prometheusSpec:
+      # Tell Prometheus to pick up all monitors and alerting rules, regardless of labels
+      podMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      ruleSelectorNilUsesHelmValues: false
+
       storageSpec:
         volumeClaimTemplate:
           spec:
             storageClassName: csi-cinder
+            recources:
+              requests:
+                storage: 10Gi
       externalLabels:
         cluster: not-set
         env: not-set
