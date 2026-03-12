@@ -78,7 +78,6 @@ muteTimeIntervals:
             endTime: "17:00"
         weekdays:
           - monday:friday
-        location: "Europe/London"
 
 receivers:
   - name: "null"
