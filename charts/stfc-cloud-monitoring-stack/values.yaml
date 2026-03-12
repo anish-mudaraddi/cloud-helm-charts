@@ -66,7 +66,7 @@ kube-prometheus-stack:
 
     extraSecretMounts:
       - name: iris-iam-creds
-        secretName: grafana-iris-iam-creds
+        secretName: grafana-oidc-secret
         defaultMode: 0440
         mountPath: /etc/secrets/iris_iam_creds
         readOnly: true
