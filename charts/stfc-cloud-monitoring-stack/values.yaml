@@ -31,7 +31,7 @@ kube-prometheus-stack:
         volumeClaimTemplate:
           spec:
             storageClassName: csi-cinder
-            recources:
+            resources:
               requests:
                 storage: 10Gi
     route:
@@ -106,7 +106,7 @@ kube-prometheus-stack:
         volumeClaimTemplate:
           spec:
             storageClassName: csi-cinder
-            recources:
+            resources:
               requests:
                 storage: 10Gi
       externalLabels:
