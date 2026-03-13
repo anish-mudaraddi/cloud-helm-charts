@@ -12,7 +12,7 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: {{.Release.name}}-kube-prom-prometheus
+    name: {{.Release.Name}}-kube-prom-prometheus
   basicAuth:
     users:
       group: ""
@@ -33,7 +33,7 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: {{.Release.name}}-kube-prom-prometheus
+    name: {{.Release.Name}}-kube-prom-prometheus
   basicAuth:
     users:
       group: ""
