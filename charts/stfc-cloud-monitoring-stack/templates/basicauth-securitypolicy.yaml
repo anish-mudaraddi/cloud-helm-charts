@@ -12,10 +12,13 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: kube-prometheus-stack-prometheus-main
+    name: {{.Release.name}}-kube-prom-prometheus
   basicAuth:
     users:
+      group: ""
+      kind: Secret
       name: internal-basic-auth
+      namespace: {{.Release.Namespace}}
 {{ end }}
 ---
 {{- if (index .Values "kube-prometheus-stack").alertmanager.enabled -}}
@@ -30,7 +33,7 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: kube-prometheus-stack-alertmanager-main
+    name: {{.Release.name}}-kube-prom-prometheus
   basicAuth:
     users:
       group: ""
