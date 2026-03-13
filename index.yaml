@@ -1203,6 +1203,23 @@ entries:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
     version: 4.0.0
   - apiVersion: v2
+    created: "2026-03-13T10:27:37.769594699Z"
+    dependencies:
+    - name: opensearch-operator
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 2.8.0
+    - name: opensearch-cluster
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 3.1.0
+    description: A Helm chart to deploy an opinionated opensearch cluster with IRIS-IAM
+      integration
+    digest: dc918b232819cb05c7dcbfb3eb84874e24e1617be85486d5e7a5bb8b9ff2c635
+    name: stfc-cloud-opensearch
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0-alpha9/stfc-cloud-opensearch-4.0.0-alpha9.tgz
+    version: 4.0.0-alpha9
+  - apiVersion: v2
     created: "2026-03-13T10:25:33.53620267Z"
     dependencies:
     - name: opensearch-operator
@@ -1860,4 +1877,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2026-03-13T10:25:33.536702798Z"
+generated: "2026-03-13T10:27:37.770013018Z"
