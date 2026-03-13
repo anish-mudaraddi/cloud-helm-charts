@@ -1,0 +1,99 @@
+apiVersion: v1
+entries:
+  stfc-cloud-argocd:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:46.668618523Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 9.4.7
+    digest: 6e6c9fff80c81c6f3af3d99e358920da8501ae59f11aee1a1a639bc8a3837e12
+    name: stfc-cloud-argocd
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-argocd-1.0.0/stfc-cloud-argocd-1.0.0.tgz
+    version: 1.0.0
+  stfc-cloud-cert-manager:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:46.909782788Z"
+    dependencies:
+    - name: cert-manager
+      repository: oci://quay.io/jetstack/charts
+      version: v1.19.4
+    - name: trust-manager
+      repository: oci://quay.io/jetstack/charts
+      version: v0.21.1
+    description: A Helm chart to deploy opinionated instance of cert-manager for the
+      STFC Cloud
+    digest: c5fe01dc0e5941166d4cc7380ee6a66d2da6da646193ce51fcb87c35c758f5f4
+    name: stfc-cloud-cert-manager
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-cert-manager-2.0.0/stfc-cloud-cert-manager-2.0.0.tgz
+    version: 2.0.0
+  stfc-cloud-docker-registry:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:47.295637571Z"
+    digest: aedd0dd055a1bb32fbe27e12784ebd89aebbb3fc8682e850ef3f195c849e75dd
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.0/stfc-cloud-docker-registry-3.0.0.tgz
+    version: 3.0.0
+  stfc-cloud-envoy-gateways:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:47.580172068Z"
+    dependencies:
+    - name: gateway-helm
+      repository: oci://docker.io/envoyproxy
+      version: 1.7.0
+    description: Deploy internal & external Envoy Gateways with optional OAuth2 and
+      Basic Auth
+    digest: 102e39004c94fb5b4b344aedebbe10ef58db26cc629e68b6be8ef4c92cdcf81b
+    name: stfc-cloud-envoy-gateways
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-envoy-gateways-1.0.0/stfc-cloud-envoy-gateways-1.0.0.tgz
+    version: 1.0.0
+  stfc-cloud-harbor:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:47.831981137Z"
+    dependencies:
+    - name: harbor
+      repository: https://helm.goharbor.io
+      version: 1.18.2
+    digest: 015adf0286be15693362708afc38c033deb4010ea99e85ff572878e10bab116c
+    name: stfc-cloud-harbor
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-harbor-1.3.0/stfc-cloud-harbor-1.3.0.tgz
+    version: 1.3.0
+  stfc-cloud-monitoring-stack:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:48.107352304Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 82.10.1
+    description: A Helm chart to deploy an opinionated version of kube-prometheus-stack
+    digest: 428ba52c05f9c99e85b7ba697384b699892c84d1222c48d8497d44073dfd4107
+    name: stfc-cloud-monitoring-stack
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-monitoring-stack-1.0.0/stfc-cloud-monitoring-stack-1.0.0.tgz
+    version: 1.0.0
+  stfc-cloud-opensearch:
+  - apiVersion: v2
+    created: "2026-03-13T16:05:48.368183263Z"
+    dependencies:
+    - name: opensearch-operator
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 2.8.0
+    - name: opensearch-cluster
+      repository: https://opensearch-project.github.io/opensearch-k8s-operator/
+      version: 3.1.0
+    description: A Helm chart to deploy an opinionated opensearch cluster with IRIS-IAM
+      integration
+    digest: b72557aec35a62c6203df06c36f561a324ba9ef8d9e42c5c8e3bb140d3b656ba
+    name: stfc-cloud-opensearch
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
+    version: 4.0.0
+generated: "2026-03-13T16:05:48.368193933Z"
