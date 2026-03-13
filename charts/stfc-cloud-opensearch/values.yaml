@@ -45,6 +45,8 @@ opensearch-operator:
 
 httproute:
   opensearch:
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"
     enabled: true
     hostnames: []
     #  - opensearch.example.com
@@ -60,6 +62,8 @@ httproute:
 
   dashboards:
     enabled: true
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"
     hostnames: []
     #  - opensearch-dashboards.example.com
     parentRefs:
@@ -76,7 +80,8 @@ opensearch-cluster:
   cluster:
     # change this to match name of cluster you want
     name: log-storage
-
+    annotations:
+      argocd.argoproj.io/sync-wave: "0"
     # set explicit cert secrets because argocd doesn't play nice with self generated secrets
     # instead explicitly generate self-signed certs using cert-manager and have them managed externally outside of argocd
     # change the secret references to match the name of your cluster - under "opensearch-cluster.cluster.name"
