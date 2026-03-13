@@ -1159,6 +1159,19 @@ entries:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-monitoring-stack-1.0.0-alpha8/stfc-cloud-monitoring-stack-1.0.0-alpha8.tgz
     version: 1.0.0-alpha8
   - apiVersion: v2
+    created: "2026-03-13T13:54:06.01366134Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 82.10.1
+    description: A Helm chart to deploy an opinionated version of kube-prometheus-stack
+    digest: 93250910846fc13e5c855116e82dfba54dade3db148576d1ac760f1803729c83
+    name: stfc-cloud-monitoring-stack
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-monitoring-stack-1.0.0-alpha8/stfc-cloud-monitoring-stack-1.0.0-alpha8.tgz
+    version: 1.0.0-alpha8
+  - apiVersion: v2
     created: "2026-03-13T12:20:32.146451447Z"
     dependencies:
     - name: kube-prometheus-stack
@@ -1942,4 +1955,4 @@ entries:
     urls:
     - https://github.com/stfc/cloud-helm-charts/releases/download/stfc-cloud-vm-1.0.0/stfc-cloud-vm-1.0.0.tgz
     version: 1.0.0
-generated: "2026-03-13T12:30:11.600884728Z"
+generated: "2026-03-13T13:54:06.014160915Z"
