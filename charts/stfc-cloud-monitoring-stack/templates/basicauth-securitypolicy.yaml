@@ -33,7 +33,7 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: {{.Release.Name}}-kube-prom-prometheus
+    name: {{.Release.Name}}-kube-prom-alertmanager
   basicAuth:
     users:
       group: ""
