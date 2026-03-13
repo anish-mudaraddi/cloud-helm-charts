@@ -82,6 +82,7 @@ opensearch-cluster:
     name: log-storage
     annotations:
       argocd.argoproj.io/sync-wave: "0"
+
     # set explicit cert secrets because argocd doesn't play nice with self generated secrets
     # instead explicitly generate self-signed certs using cert-manager and have them managed externally outside of argocd
     # change the secret references to match the name of your cluster - under "opensearch-cluster.cluster.name"
@@ -112,9 +113,6 @@ opensearch-cluster:
           name: log-storage-admin-credentials
         securityConfigSecret:
           name: log-storage-securityconfig-secret
-
-    annotations:
-      helm.sh/hook: post-install,post-upgrade
 
     general:
       version: 3.1.0
