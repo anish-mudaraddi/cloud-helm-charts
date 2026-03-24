@@ -88,6 +88,21 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-longhorn-2.0.0/stfc-cloud-longhorn-2.0.0.tgz
     version: 2.0.0
+  stfc-cloud-manila-csi:
+  - apiVersion: v2
+    created: "2026-03-24T13:50:18.358718547Z"
+    dependencies:
+    - name: openstack-manila-csi
+      repository: https://kubernetes.github.io/cloud-provider-openstack
+      version: 2.35.0
+    - name: ceph-csi-cephfs
+      repository: https://ceph.github.io/csi-charts
+      version: 3.16.1
+    digest: 8c41dfa0613f19593d8ac8e4b8ba7ea7c0990c6710a6c272f0ee4799936b1ce5
+    name: stfc-cloud-manila-csi
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-manila-csi-1.1.7/stfc-cloud-manila-csi-1.1.7.tgz
+    version: 1.1.7
   stfc-cloud-monitoring-stack:
   - apiVersion: v2
     created: "2026-03-13T16:05:48.107352304Z"
@@ -120,4 +135,19 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-opensearch-4.0.0/stfc-cloud-opensearch-4.0.0.tgz
     version: 4.0.0
-generated: "2026-03-13T16:26:45.056032815Z"
+  stfc-cloud-openstack-cluster:
+  - apiVersion: v2
+    created: "2026-03-24T13:50:18.881095249Z"
+    dependencies:
+    - name: openstack-cluster
+      repository: https://azimuth-cloud.github.io/capi-helm-charts
+      version: 0.21.0
+    description: A Helm chart to deploy a compliant K8s cluster (using CAPI) on the
+      STFC Cloud
+    digest: 7753cdf1044aeea1a3257f5c1d23b2a127befa9db9dc6a07ec6f92c056316040
+    name: stfc-cloud-openstack-cluster
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-openstack-cluster-1.7.0/stfc-cloud-openstack-cluster-1.7.0.tgz
+    version: 1.7.0
+generated: "2026-03-24T13:50:18.881106069Z"
