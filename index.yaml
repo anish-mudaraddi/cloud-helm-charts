@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   stfc-cloud-argocd:
   - apiVersion: v2
+    created: "2026-03-30T10:44:50.691352304Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 9.4.7
+    digest: 06aae9a3ffc730aa51b0d04315f0416f5747dc893070b5114fe5690469e0223b
+    name: stfc-cloud-argocd
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-argocd-2.0.0/stfc-cloud-argocd-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2026-03-13T16:05:46.668618523Z"
     dependencies:
     - name: argo-cd
@@ -89,6 +100,17 @@ entries:
     version: 1.3.1
   stfc-cloud-longhorn:
   - apiVersion: v2
+    created: "2026-03-30T10:44:50.902504718Z"
+    dependencies:
+    - name: longhorn
+      repository: https://charts.longhorn.io
+      version: 1.11.0
+    digest: 32667c158f30144d9de07cd30160dabdf8434dc4ecfd86cbaa3706031a073568
+    name: stfc-cloud-longhorn
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-longhorn-2.1.0/stfc-cloud-longhorn-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
     created: "2026-03-13T16:24:36.40396865Z"
     dependencies:
     - name: longhorn
@@ -115,6 +137,19 @@ entries:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-manila-csi-1.1.7/stfc-cloud-manila-csi-1.1.7.tgz
     version: 1.1.7
   stfc-cloud-monitoring-stack:
+  - apiVersion: v2
+    created: "2026-03-30T10:44:51.163513944Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 82.10.1
+    description: A Helm chart to deploy an opinionated version of kube-prometheus-stack
+    digest: f6a258d3cdd9f877ce3081d43b8c27f381a27c8dd3acf261199ff66e64e67fd9
+    name: stfc-cloud-monitoring-stack
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-monitoring-stack-2.0.1/stfc-cloud-monitoring-stack-2.0.1.tgz
+    version: 2.0.1
   - apiVersion: v2
     created: "2026-03-13T16:05:48.107352304Z"
     dependencies:
@@ -148,6 +183,20 @@ entries:
     version: 4.0.0
   stfc-cloud-openstack-cluster:
   - apiVersion: v2
+    created: "2026-03-30T10:44:51.33293317Z"
+    dependencies:
+    - name: openstack-cluster
+      repository: https://azimuth-cloud.github.io/capi-helm-charts
+      version: 0.21.0
+    description: A Helm chart to deploy a compliant K8s cluster (using CAPI) on the
+      STFC Cloud
+    digest: c5b1a41436ba3d1a8125fd56e3629bf408761140191265a08c4e372bcc9fe146
+    name: stfc-cloud-openstack-cluster
+    type: application
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-openstack-cluster-1.8.0/stfc-cloud-openstack-cluster-1.8.0.tgz
+    version: 1.8.0
+  - apiVersion: v2
     created: "2026-03-24T13:50:18.881095249Z"
     dependencies:
     - name: openstack-cluster
@@ -161,4 +210,4 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-openstack-cluster-1.7.0/stfc-cloud-openstack-cluster-1.7.0.tgz
     version: 1.7.0
-generated: "2026-03-24T15:02:56.534132901Z"
+generated: "2026-03-30T10:44:51.332957856Z"
