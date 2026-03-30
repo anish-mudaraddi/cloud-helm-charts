@@ -43,6 +43,13 @@ entries:
     version: 2.0.0
   stfc-cloud-docker-registry:
   - apiVersion: v2
+    created: "2026-03-30T10:45:54.260964557Z"
+    digest: 560fc30600106f5571e98dc81e1aeebc8aa7b2a1367ca22cba7f9eeab4cc9e10
+    name: stfc-cloud-docker-registry
+    urls:
+    - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-docker-registry-3.0.1/stfc-cloud-docker-registry-3.0.1.tgz
+    version: 3.0.1
+  - apiVersion: v2
     created: "2026-03-13T16:05:47.295637571Z"
     digest: aedd0dd055a1bb32fbe27e12784ebd89aebbb3fc8682e850ef3f195c849e75dd
     name: stfc-cloud-docker-registry
@@ -210,4 +217,4 @@ entries:
     urls:
     - https://github.com/anish-mudaraddi/cloud-helm-charts/releases/download/stfc-cloud-openstack-cluster-1.7.0/stfc-cloud-openstack-cluster-1.7.0.tgz
     version: 1.7.0
-generated: "2026-03-30T10:44:51.332957856Z"
+generated: "2026-03-30T10:45:54.261015531Z"
